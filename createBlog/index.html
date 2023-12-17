@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Write a blog</title>
+    <title>Write yourself out</title>
 </head>
 <body>
-    <div id="app">
+    <div id="editorjs">
 
     </div>
+    <div id="other-information">
+        <p>Categories</p>
+        <div id="categories-container">
+            <ul id="categories">
+
+            </ul>
+        </div>
+        <label for="published">Publish:</label>
+        <input type="checkbox" id="published">
+    </div>
+    <button id="save-button">Save</button>
     <script type="module" src="./createBlog.js"></script>
 </body>
 </html>

@@ -16,9 +16,11 @@ async function login (username, password) {
         password: password
     })
     .then((response) => {
-        sessionStorage.setItem("username", response.data.username)
-        window.location.replace("/");
-        console.log(response.data);
+        //sessionStorage.setItem("username", response.data.username)
+        //window.location.replace("/blog/");
+        console.log(response.data.foundUser);
+        sessionStorage.setItem("userId", response.data.foundUser._id )
+        window.location.replace("/blog/");
     })
     .catch((err) => {
         console.error(err);
