@@ -126,6 +126,7 @@ async function initializeEditor(newBlog) {
       axios.patch("http://localhost:3500/blog", updateData)
       .then((response) => {
         console.log(response.data)
+        alert("updated blog")
       })
       .catch((err) => {
         console.error(err)
