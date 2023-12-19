@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 async function login (username, password) {
-    await axios.post("http://localhost:3500/auth/admin", {
+    await axios.post("https://altaiblogbackend.onrender.com/auth/admin", {
         username: username,
         password: password
     })

@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function getBlogData(blogId) {
     try {
-      const response = await axios.get(`http://localhost:3500/blog/${blogId}`);
+      const response = await axios.get(`https://altaiblogbackend.onrender.com/blog/${blogId}`);
       console.log(response.data);
       return Promise.resolve(response.data);
     } catch (error) {
@@ -134,7 +134,7 @@ function generateAdminUI(blog) {
             public: published,
             blogId: blogId
         }
-        axios.patch("http://localhost:3500/blog", updateData)
+        axios.patch("https://altaiblogbackend.onrender.com/blog", updateData)
         .then((response) => {
             console.log(response.data)
             alert("updated blog")
@@ -175,7 +175,7 @@ async function deleteBlog(blogId) {
     const data = {
         blogId: blogId
     }
-    await axios.post("http://localhost:3500/blog/delete", data)
+    await axios.post("https://altaiblogbackend.onrender.com/blog/delete", data)
     .then((response) => {
         console.log(response.data)
         window.location.replace("/blog/")

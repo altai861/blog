@@ -24,7 +24,7 @@ async function createNewBlog() {
   const postdata = {
     userId: userId
   }
-  await axios.post("http://localhost:3500/blog", postdata)
+  await axios.post("https://altaiblogbackend.onrender.com/blog", postdata)
   .then((response) => {
     console.log(response.data)
     initializeEditor(response.data);
@@ -123,7 +123,7 @@ async function initializeEditor(newBlog) {
         public: published,
         blogId: blogId
       }
-      axios.patch("http://localhost:3500/blog", updateData)
+      axios.patch("https://altaiblogbackend.onrender.com/blog", updateData)
       .then((response) => {
         console.log(response.data)
         alert("updated blog")

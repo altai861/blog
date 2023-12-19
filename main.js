@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function renderBlogs(admin) {
   let blogs;
-  await axios.get("http://localhost:3500/blog")
+  await axios.get("https://altaiblogbackend.onrender.com/blog")
   .then((response) => {
     blogs = response.data
   })
