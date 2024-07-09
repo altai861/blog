@@ -7,7 +7,7 @@ function router() {
   if (path === "/") {
     homePage();
   } else {
-    blogPage(path)
+    blogPage(path.substring(1))
   }
 }
 
