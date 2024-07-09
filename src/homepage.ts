@@ -1,6 +1,9 @@
-export function homePage() {
+import { getBlogs } from "./service"
+
+export async function homePage() {
     const app = document.getElementById("app")
     if (app) {
-        app.innerHTML = "Homepage";
+        const response = await getBlogs();
+        app.innerHTML = JSON.stringify(response)
     }
 }
