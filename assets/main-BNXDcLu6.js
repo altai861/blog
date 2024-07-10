@@ -9,7 +9,7 @@
                     ${o!=null&&o.imageLink?`<img src="${o==null?void 0:o.imageLink}">`:""}
                     <p>${o==null?void 0:o.categories}</p>
                     <p>Created on: ${new Date(o.createdDate).toLocaleDateString()}</p>
-                    <a href='${o.blogId}'>Read</a>
+                    <a href='#${o.blogId}'>Read</a>
                 </div>
             `}),n.innerHTML=`
             <div class='navbar'>
@@ -84,6 +84,6 @@
             `;else if(await jo(e)){n.innerHTML=`
                     <div id='editorjs'></div>
                     <button id='save-button'>SAVE</button>
-                `;const o=new mn({holder:"editorjs",tools:{header:gn,image:bn,checklist:{class:kn,inlineToolbar:!0},list:{class:wn,inlineToolbar:!0,config:{defaultStyle:"unordered"}},embed:{class:se,config:{services:{youtube:!0,coub:!0,twitter:!0}}},quote:{class:ue,inlineToolbar:!0,shortcut:"CMD+SHIFT+O",config:{quotePlaceHolder:"Enter a quote",captionPlaceHolder:"Quotes's author"}}}}),i=document.getElementById("save-button");i==null||i.addEventListener("click",()=>{o.save().then(async s=>{console.log(s);const r=await Zi(s);console.log(await r),window.location.href=`/${r.blogId}`})})}else alert("No access"),n.innerHTML=`
+                `;const o=new mn({holder:"editorjs",tools:{header:gn,image:bn,checklist:{class:kn,inlineToolbar:!0},list:{class:wn,inlineToolbar:!0,config:{defaultStyle:"unordered"}},embed:{class:se,config:{services:{youtube:!0,coub:!0,twitter:!0}}},quote:{class:ue,inlineToolbar:!0,shortcut:"CMD+SHIFT+O",config:{quotePlaceHolder:"Enter a quote",captionPlaceHolder:"Quotes's author"}}}}),i=document.getElementById("save-button");i==null||i.addEventListener("click",()=>{o.save().then(async s=>{console.log(s);const r=await Zi(s);console.log(await r),window.location.href=`#${r.blogId}`})})}else alert("No access"),n.innerHTML=`
                     <a href='/'>Go back</a>
-                `}}function vn(){let n=window.location.pathname;n=n.substring(5),n==="/"?es():n==="/new"?ca():la(n.substring(1))}window.addEventListener("hashchange",vn);window.addEventListener("load",vn);
+                `}}function vn(){let n=window.location.hash;console.log(n),n?n==="#new"?ca():la(n.substring(1)):es()}window.addEventListener("hashchange",vn);window.addEventListener("load",vn);
