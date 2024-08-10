@@ -1,0 +1,108 @@
+/* Reset some default styles */
+body, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling the navbar */
+.navbar {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    padding: 1rem;
+    background-color:antiquewhite ;
+}
+
+.navbar input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    margin-right: 20px;
+}
+
+.navbar button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: aliceblue;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Styling the blog meta container */
+.blog-meta-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Styling each blog meta */
+.blog-meta {
+    flex: 1 1 calc(33.333% - 1rem); /* Responsive: 3 items per row */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-meta:hover {
+    transform: translateY(-5px);
+}
+
+.blog-meta h2 {
+    padding: 1rem;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+}
+
+.blog-meta img {
+    align-self: center;
+    width: 100%;
+    height: auto;
+    max-width: 90%; /* Ensure images don't exceed their container width */
+    max-height: 400px; /* Limit the height of images to maintain stability */
+    object-fit: cover; /* Ensure images maintain aspect ratio and cover the container */
+    margin: 10px;
+}
+
+.blog-meta p {
+    padding: 0 1rem;
+    flex-grow: 1; /* Allow the content to grow within the flex container */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Ellipsis for overflowing text */
+}
+
+.blog-meta a {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    background-color: aliceblue;
+    text-decoration: none;
+    border-top: 1px solid #ddd;
+}
+
+.blog-meta a:hover {
+    background-color: aliceblue;
+}
+
+.meta-links {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .blog-meta {
+        flex: 1 1 calc(50% - 1rem); /* 2 items per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-meta {
+        flex: 1 1 100%; /* 1 item per row */
+    }
+}

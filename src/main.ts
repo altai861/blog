@@ -4,10 +4,11 @@ import { blogPage } from './blog'
 import { newPage } from './new';
 
 function router() {
-  const path = window.location.pathname;
-  if (path === "/") {
+  let path = window.location.hash
+  console.log(path)
+  if (!path) {
     homePage();
-  } else if (path === "/new") {
+  } else if (path === "#new") {
     newPage();
   } else {
     blogPage(path.substring(1))
