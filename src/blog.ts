@@ -19,10 +19,14 @@ export async function blogPage(path: string) {
     const app = document.getElementById("app")
     if (app) {
         app.innerHTML = `
-            ${itIsMe ? `<button id='go-back-button'>Go Back</button>` : ''}
+            <div class='fixed-button-container-safe'>
+                <button id='go-back-button'>Go Back</button>
+                ${itIsMe ? `<button id='save-button'>Save</button>` : ''}
+            </div>
+            <div class='fixed-button-container-danger'>
+                ${itIsMe ? `<button id='delete-button'>Delete</button>` : ''}
+            </div>
             <div id='editorjs'></div>
-            ${itIsMe ? `<button id='save-button'>Save</button>` : ''}
-            ${itIsMe ? `<button id='delete-button'>Delete</button>` : ''}
         `
         const response = await getSingleBlog(path);
         console.log(response)
@@ -66,6 +70,10 @@ export async function blogPage(path: string) {
             readOnly: itIsMe ? false : true
         });
 
+        const goBackButton = document.getElementById("go-back-button");
+        goBackButton?.addEventListener("click", () => {
+            window.history.back();
+        })
 
         if (itIsMe) {
             const saveButton = document.getElementById("save-button");
@@ -83,11 +91,6 @@ export async function blogPage(path: string) {
                     await deleteBlog(path);
                     window.location.href = "/blog/"
                 }
-            })
-
-            const goBackButton = document.getElementById("go-back-button");
-            goBackButton?.addEventListener("click", () => {
-                window.history.back();
             })
         }
     }
