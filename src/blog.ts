@@ -14,6 +14,7 @@ import { checkMe, getSingleBlog, updateBlog, deleteBlog } from './service';
 
 
 export async function blogPage(path: string) {
+    
     const password = localStorage.getItem("password");
     const itIsMe = await checkMe(password);
     const app = document.getElementById("app")
@@ -21,10 +22,13 @@ export async function blogPage(path: string) {
         app.innerHTML = `
             <div class='fixed-button-container-safe'>
                 <button id='go-back-button'>Go Back</button>
-                ${itIsMe ? `<button id='save-button'>Save</button>` : ''}
+            </div>
+            <div class='fixed-button-container-normal'>
+                <button id='color-mode-changer' class='small-button'>theme</button>
+                ${itIsMe ? `<button id='save-button' class='small-button'>Save</button>` : ''}
             </div>
             <div class='fixed-button-container-danger'>
-                ${itIsMe ? `<button id='delete-button'>Delete</button>` : ''}
+                ${itIsMe ? `<button id='delete-button' class='small-button'>Delete</button>` : ''}
             </div>
             <div id='editorjs'></div>
         `
@@ -75,6 +79,13 @@ export async function blogPage(path: string) {
             window.history.back();
         })
 
+        const themeChangerButton = document.getElementById("color-mode-changer");
+        themeChangerButton?.addEventListener("click", () => {
+            document.getElementById("editorjs")?.classList.toggle("dark-mode")
+        })
+
+
+
         if (itIsMe) {
             const saveButton = document.getElementById("save-button");
             saveButton?.addEventListener("click", () => {
@@ -83,6 +94,18 @@ export async function blogPage(path: string) {
                     alert("Saved");
                 })
             })
+            
+            document.addEventListener("keydown", function saveBlogOnCtrlS(event) {
+                if (event.key === 's' && event.ctrlKey) {
+                    event.preventDefault();
+                    editor.save().then(async (outputData) => {
+                        await updateBlog(path, outputData);
+                        //window.location.reload();
+                        alert("Saved");
+                    });
+                }
+            });
+                
 
             const deleteButton = document.getElementById("delete-button");
             deleteButton?.addEventListener("click", async () => {

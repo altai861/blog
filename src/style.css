@@ -4,6 +4,11 @@
     word-spacing: 2%;
 }
 
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
 body, h2, p {
     margin: 0;
     padding: 0;
@@ -31,6 +36,10 @@ body, h2, p {
     background-color: aliceblue;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.navbar button:hover {
+    background-color:#cab3b3;
 }
 
 /* Styling the blog meta container */
@@ -72,7 +81,14 @@ body, h2, p {
 
 .fixed-button-container-danger {
     position: fixed;
-    top: 90%;
+    top: 95%;
+    right: 0;
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+.fixed-button-container-normal {
+    position: fixed;
+    top: 5%;
     right: 0;
     z-index: 1000; /* Ensure it stays on top of other content */
 }
@@ -116,6 +132,10 @@ body, h2, p {
     color: inherit;
 }
 
+.small-button {
+    font-size:xx-small;
+}
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -127,5 +147,9 @@ body, h2, p {
 @media (max-width: 768px) {
     .blog-meta {
         flex: 1 1 100%; /* 1 item per row */
+    }
+
+    #editorjs {
+        padding: 15px;
     }
 }
