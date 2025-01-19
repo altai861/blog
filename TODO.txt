@@ -1,0 +1,4 @@
+1. So there are specific topics, and blogs are categorized into some topic, while they can have their own tags.
+2. The design will be simple and just the list of of blogs in date descending order. And there will be the topics at the top.
+3. I will set the /new route and I will just go there If I want to create a new blog. To create a new blog, I will just add the resulting json to the assets 
+4. 

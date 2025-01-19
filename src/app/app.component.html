@@ -1,3 +1,11 @@
-MAIN PAGE
-<app-editor></app-editor>
-<router-outlet></router-outlet>
+
+<div id="main">
+    <div id="container">
+        MAIN PAGE
+        <div *ngFor="let blog of blogs">
+            {{ blog }}
+        </div>
+        <app-editor></app-editor>
+        <router-outlet></router-outlet>
+    </div>
+</div>
