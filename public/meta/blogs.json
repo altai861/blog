@@ -1,5 +1,20 @@
-{
-    "blogs": [
-        "test1", "test2"
-    ]
-}
+[
+    {
+        "blogId": "1",
+        "date": "2025-01-30",
+        "tags": ["Programming", "Fun"],
+        "title": "How did I made this blog?"
+    },
+    {
+        "blogId": "2",
+        "date": "2025-01-31",
+        "tags": ["Fitness", "Health"],
+        "title": "My approach to fitness"
+    },
+    {
+        "blogId": "3",
+        "date": "2025-02-01",
+        "tags": ["Daily Plan"],
+        "title": "My plan for Feb 1"
+    }
+]

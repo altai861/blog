@@ -1,0 +1,17 @@
+<ul id="blog-list">
+    <li *ngFor="let blog of blogs" class="single-blog" [routerLink]="['/', blog.blogId]">
+            <div>
+                <h2>{{ blog.title }}</h2>
+                <div class="sub-container">
+                    <div class="date-container">
+                        {{ blog.date.toISOString().split('T')[0] }}
+                    </div>
+                    <div class="tags-container">
+                        <div class="single-tag" *ngFor="let tag of blog.tags">
+                            {{ tag }}
+                        </div>
+                    </div>  
+                </div>          
+            </div>
+    </li>
+</ul>

@@ -1,31 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { EditorComponent } from "./editor/editor.component";
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { TinyMCEComponent } from './components/tinymce/tinymce.component';
+import { BlogMeta } from './entities/BlogMeta.model';
+import { BlogListComponent } from './components/bloglist/bloglist.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, EditorComponent, CommonModule],
+  imports: [RouterOutlet, CommonModule, TinyMCEComponent, BlogListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  title = 'blog';
-  blogs = [];
+  ngOnInit() {
 
-  constructor(private http: HttpClient) {}
-
-
-  ngOnInit(): void {
-      this.http.get("/meta/blogs.json").subscribe({
-        next: (res: any) => {
-          console.log(res);
-          this.blogs = res.blogs
-        },
-        error: (err) => {
-          console.error(err);
-        }
-      })
   }
 }
