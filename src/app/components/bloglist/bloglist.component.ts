@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TinyMCEComponent } from '../../components/tinymce/tinymce.component';
 import { BlogMeta } from '../../entities/BlogMeta.model';
 import { RouterModule } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'blog-list',
@@ -19,7 +20,9 @@ export class BlogListComponent implements OnInit {
 
 
   ngOnInit(): void {
-      this.http.get<BlogMeta[]>("/meta/blogs.json").subscribe({
+    const apiUrl = `${environment.apiBasePath}/meta/blogs.json`;
+
+      this.http.get<BlogMeta[]>(apiUrl).subscribe({
         next: (res: BlogMeta[]) => {
           console.log(res);
           this.blogs = res.map(blog => ({
