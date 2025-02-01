@@ -5,6 +5,7 @@ import { TinyMCEComponent } from '../../components/tinymce/tinymce.component';
 import { BlogMeta } from '../../entities/BlogMeta.model';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Blog } from '../../entities/Blog.model';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'blog-list',
@@ -21,8 +22,9 @@ export class BlogDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.blogId = this.route.snapshot.paramMap.get('blogId');
+    const apiUrl = `${environment.apiBasePath}/blogs/${this.blogId}.json`;
 
-      this.http.get<Blog>(`/blogs/${this.blogId}.json`).subscribe({
+      this.http.get<Blog>(apiUrl).subscribe({
         next: (res: Blog) => {
           this.blog = res;
         },

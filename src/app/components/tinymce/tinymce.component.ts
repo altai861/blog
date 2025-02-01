@@ -1,5 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { EditorComponent } from '@tinymce/tinymce-angular';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'tinymce',
@@ -17,7 +18,7 @@ export class TinyMCEComponent {
 
   init: EditorComponent['init'] = {
     plugins: 'lists link image table code help wordcount codesample',
-    base_url: '/tinymce',
+    base_url: `${environment.apiBasePath}/tinymce`,
     promotion: false,
     readonly: !this.itIsMe,
     menubar: this.itIsMe,
